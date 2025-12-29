@@ -20,6 +20,7 @@ O backend foi desenhado seguindo **boas práticas de arquitetura**, separação 
 ## 🧱 Arquitetura Geral
 
 * **Fastify** como framework HTTP
+* **Prisma** como ORM
 * **JWT** para autenticação stateless
 * **Redis** para cache, sessões e refresh tokens
 * **PostgreSQL** como banco de dados relacional
@@ -48,6 +49,7 @@ A API utiliza um **fluxo moderno de autenticação com JWT**, composto por:
 ## 🛠️ Tecnologias Utilizadas
 
 * **Node.js**
+* **Prisma**
 * **Fastify**
 * **Fastify JWT**
 * **Fastify Redis**
