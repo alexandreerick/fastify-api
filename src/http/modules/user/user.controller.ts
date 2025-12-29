@@ -54,7 +54,7 @@ class UserController {
       },
       {
         sign: {
-          expiresIn: '10s',
+          expiresIn: '12h',
         }
       }
     );
@@ -70,6 +70,9 @@ class UserController {
       },
     );
 
+    const redisInstance = request.server.redis;
+    await UserService.saveRefreshTokenOnCache({ redisInstance, userId: user.id, refresh_token: refreshToken });
+
     return reply.status(200).headers({
       'x-access-token': token,
       'x-refresh-token': refreshToken
@@ -81,13 +84,17 @@ class UserController {
 
     const { id } = request.user
 
+    const cachedRefreshToken = await UserService.getRefreshTokenOnCache({ redisInstance: request.server.redis, userId: id });
+
+    if (!cachedRefreshToken) throw new BadRequestError('Invalid refresh token!');
+
     const token = await reply.jwtSign(
       {
         id,
       },
       {
         sign: {
-          expiresIn: '10s',
+          expiresIn: '12h',
         }
       }
     );
@@ -102,6 +109,9 @@ class UserController {
         },
       },
     );
+
+    const redisInstance = request.server.redis;
+    await UserService.saveRefreshTokenOnCache({ redisInstance, userId: id, refresh_token: refreshToken });
 
     return reply.status(200).headers({
       'x-access-token': token,

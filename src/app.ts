@@ -1,11 +1,18 @@
-import fastifyJwt from '@fastify/jwt'
 import fastify from 'fastify'
+import fastifyJwt from '@fastify/jwt'
+import fastifyRedis from '@fastify/redis'
 import { ZodError } from 'zod'
 import { env } from '@/env'
 import { userRoutes } from '@/http/modules/user/routes'
 import { AppError } from '@/http/validators/errors'
 
 export const app = fastify()
+
+app.register(fastifyRedis, {
+  host: env.REDIS_HOST,
+  port: env.REDIS_PORT,
+  password: env.REDIS_PASSWORD,
+});
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,

@@ -6,6 +6,9 @@ const envSchema = z.object({
   JWT_SECRET: z.string(),
   PORT: z.coerce.number().default(3333),
   DATABASE_URL: z.string(),
+  REDIS_HOST: z.string(),
+  REDIS_PORT: z.coerce.number().default(6379),
+  REDIS_PASSWORD: z.string(),
 })
 
 const _env = envSchema.safeParse(process.env)
