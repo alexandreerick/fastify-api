@@ -1,6 +1,6 @@
 # 🚀 Fastify API
 
-Este repositório contém o **backend da aplicação**, desenvolvido com **Fastify**, focado em performance, segurança e escalabilidade. A API foi pensada para atender aplicações web e mobile (React.js / React Native), com um **fluxo completo de autenticação**, integração com **Redis**, **PostgreSQL**, e preparada para evoluir para um **SaaS robusto**.
+Este repositório contém um backend desenvolvido com **Fastify**, focado em performance, segurança e escalabilidade. A API foi pensada para atender aplicações web e mobile (React.js / React Native), com um **fluxo completo de autenticação**, integração com **Redis**, **PostgreSQL**, e preparada para evoluir para um **SaaS robusto**.
 
 ---
 
