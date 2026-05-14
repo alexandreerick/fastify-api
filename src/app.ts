@@ -9,9 +9,7 @@ import { AppError } from '@/http/validators/errors'
 export const app = fastify()
 
 app.register(fastifyRedis, {
-  host: env.REDIS_HOST,
-  port: env.REDIS_PORT,
-  password: env.REDIS_PASSWORD,
+  url: env.REDIS_URL
 });
 
 app.register(fastifyJwt, {
