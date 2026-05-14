@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --clear-screen=false --watch=src src/server.ts",
-    "build": "tsc",
-    "start": "node dist/src/server.js",
-    "start:prod": "prisma migrate deploy && node dist/src/server.js"
+    "build": "tsup",
+    "start": "node dist/server.js",
+    "start:prod": "prisma migrate deploy && node dist/server.js"
   },
   "keywords": [],
   "author": "",
