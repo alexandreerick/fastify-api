@@ -6,7 +6,23 @@ import { env } from '@/env'
 import { userRoutes } from '@/http/modules/user/routes'
 import { AppError } from '@/http/validators/errors'
 
-export const app = fastify()
+const envToLogger = {
+  development: {
+    transport: {
+      target: 'pino-pretty',
+      options: {
+        translateTime: 'HH:MM:ss Z',
+        ignore: 'pid,hostname',
+      },
+    },
+  },
+  production: true,
+  test: false,
+}
+
+export const app = fastify({
+  logger: envToLogger[env.NODE_ENV] ?? true,
+});
 
 app.register(fastifyRedis, {
   host: env.REDIS_HOST,
