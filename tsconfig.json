@@ -10,13 +10,12 @@
       "ESNext.Iterator",
       "ESNext.Promise"
     ],
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "ES2023",
 
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
     "outDir": "dist",
 
     "paths": {
